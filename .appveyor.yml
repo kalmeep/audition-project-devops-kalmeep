@@ -6,7 +6,7 @@ build_script:
    - mkdir build_msbuild
    - cd build_msbuild
    - cmake -G "Visual Studio 15 2017 Win64" ..
-   - msbuild audition-project-devops-kalmeep-master.sln
+   - msbuild audition-project-devops-kalmeep.sln
    - ctest
    - cd..
 
