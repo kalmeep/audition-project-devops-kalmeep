@@ -1,11 +1,8 @@
-language:
-- c++
+language: cpp
 
-matrix:
-include:
--os: linux
-compiler: gcc
--os: osx
+#os: linux
+#compiler: gcc
+os: osx
 compiler: clang 
 	
 script:
