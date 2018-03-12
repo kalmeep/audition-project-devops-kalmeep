@@ -4,14 +4,18 @@
 int main(int argc, char * argv[])
 {
 	std::vector<double> vec;
-
+	int returnvalue = -1, sample =1;
+	double sample_mean_program = 0.0;
+	double input_value = 0.0;
 // commandline parameters for CTest
-	for (int sample = 1; sample < argc; sample++)
+	for (sample = 1; sample < argc; sample++)
 	{
-		vec.push_back(strtod(argv[sample],NULL));   
-
+		input_value = strtod(argv[sample],NULL);   
+		vec.push_back(input_value);   
+		sample_mean_program += input_value;
 	}  
 	
+		sample_mean_program = (sample_mean_program/(argc-1));
 
 //interactive test
 /*	std::cout <<"please entersample value count:" ;
@@ -47,7 +51,14 @@ int main(int argc, char * argv[])
 	double max_value = 0.0;
         sample_mean_evaluated = LibTwoUtils::sample_mean(vec);
 	max_value = LibTwoUtils::find_max(vec);
+	
 	std::cout << "sample has mean = "<< sample_mean_evaluated << " änd max value = " << max_value << std::endl;
-	return 0;
 
+	std::cout << "sample has mean = "<< sample_mean_evaluated << " änd max value = " << max_value << "with sample mean ground truth" << sample_mean_program <<  std::endl;
+	
+	if(sample_mean_evaluated == sample_mean_program)
+		returnvalue= 0;
+
+
+	return returnvalue;
 }
